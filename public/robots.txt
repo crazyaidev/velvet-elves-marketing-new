@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /create-account
+
+Host: https://velvetelves.com
+Sitemap: https://velvetelves.com/sitemap.xml

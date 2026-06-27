@@ -1,0 +1,16 @@
+# dependencies
+node_modules
+
+# build output
+dist
+.vite-react-ssg-temp
+
+# env (secrets — never commit; anon key is safe ONLY because RLS is insert-only)
+.env
+.env.local
+.env.*.local
+
+# logs / os
+*.log
+.DS_Store
+Thumbs.db

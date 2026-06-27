@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Applied ve-* tokens (mirror of the base app's index.css) ─────────── */
+    --ve-orange: #E26812;
+    --ve-orange-dark: #C05A0A;
+    --ve-orange-xdark: #8B3F00;
+    --ve-orange-light: #FEF3E6;
+    --ve-orange-soft: #FFF9F4;
+    --ve-charcoal: #2C4C7F;
+    --ve-sidebar-bg: #1E3356;
+    --ve-bg: #F4F4F4;
+    --ve-surface: #FFFFFF;
+    --ve-surface-2: #F8F8F6;
+    --ve-border: #E2E2E0;
+    --ve-text-primary: #1A1A1A;
+    --ve-text-secondary: #4A4A4A;
+    --ve-text-muted: #7A7A7A;
+
+    /* ── shadcn/ui semantic tokens (HSL) ──────────────────────────────────── */
+    --background: 0 0% 95.7%;        /* ve-bg #F4F4F4 */
+    --foreground: 0 0% 10%;          /* ve-text-primary */
+    --primary: 24 85% 48%;           /* champagne */
+    --primary-foreground: 0 0% 100%;
+    --border: 40 3% 88%;
+    --ring: 24 85% 48%;
+    --radius: 6px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Floating-pill nav clears anchor targets so #teams / #attorneys land below it. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    font-family: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @apply bg-cream text-ve-text-primary;
+    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'cv05' 1;
+    letter-spacing: -0.005em;
+  }
+
+  /* Fraunces shines at display sizes, let optical sizing track the font-size,
+     with a touch of softness for the premium, concierge feel. */
+  .font-serif {
+    font-optical-sizing: auto;
+    font-variation-settings: 'SOFT' 28, 'WONK' 0;
+  }
+
+  ::selection {
+    background-color: rgba(226, 104, 18, 0.18);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* The Velvet Elves brand glyph kicker accent. */
+  .brand-mark {
+    color: var(--ve-orange);
+  }
+}
+
+/* Respect reduced-motion globally as a backstop; components also gate via
+   framer-motion's useReducedMotion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
