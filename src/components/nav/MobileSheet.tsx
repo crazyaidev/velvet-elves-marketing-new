@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { X } from 'lucide-react'
-import { ROLE_LINKS } from '@/lib/nav'
-import { SIGN_IN_URL } from '@/lib/config'
+import { NAV_GROUPS } from '@/lib/nav'
+import { SIGN_IN_URL, REGISTER_URL } from '@/lib/config'
 import { Button } from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
@@ -26,7 +26,6 @@ export function MobileSheet({ open, onClose }: MobileSheetProps) {
           'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])',
         ) ?? [],
       )
-    // Move focus into the sheet so keyboard users land inside the trap.
     focusables()[0]?.focus()
 
     const onKey = (e: KeyboardEvent) => {
@@ -51,17 +50,13 @@ export function MobileSheet({ open, onClose }: MobileSheetProps) {
     return () => {
       document.body.style.overflow = ''
       document.removeEventListener('keydown', onKey)
-      // Return focus to whatever opened the sheet.
       restoreRef.current?.focus?.()
     }
   }, [open, onClose])
 
   return (
     <div
-      className={cn(
-        'fixed inset-0 z-[60] md:hidden',
-        open ? 'pointer-events-auto' : 'pointer-events-none',
-      )}
+      className={cn('fixed inset-0 z-[60] lg:hidden', open ? 'pointer-events-auto' : 'pointer-events-none')}
       aria-hidden={!open}
     >
       <div
@@ -74,12 +69,12 @@ export function MobileSheet({ open, onClose }: MobileSheetProps) {
         aria-modal="true"
         aria-label="Menu"
         className={cn(
-          'absolute right-0 top-0 flex h-full w-[82%] max-w-sm flex-col bg-white shadow-premium transition-transform duration-300',
+          'absolute right-0 top-0 flex h-full w-[86%] max-w-sm flex-col bg-white shadow-premium transition-transform duration-300',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         <div className="flex items-center justify-between border-b border-ve-border px-6 py-4">
-          <img src="/brand/velvet-elves-logo.png" alt="Velvet Elves" className="h-10 w-auto" />
+          <img src="/brand/velvet-elves-logo.png" alt="Velvet Elves" className="h-9 w-auto" />
           <button
             onClick={onClose}
             aria-label="Close menu"
@@ -89,36 +84,35 @@ export function MobileSheet({ open, onClose }: MobileSheetProps) {
           </button>
         </div>
 
-        <nav className="flex flex-1 flex-col gap-1 px-4 py-5" aria-label="Mobile">
-          {ROLE_LINKS.map((r) => (
-            <NavLink
-              key={r.href}
-              to={r.href}
-              onClick={onClose}
-              className={({ isActive }) =>
-                cn(
-                  'rounded-lg px-3 py-3 text-[16px] font-medium',
-                  isActive ? 'bg-ve-orange-light text-ve-orange-dark' : 'text-ve-text-primary hover:bg-ve-surface-2',
-                )
-              }
-            >
-              {r.label}
-            </NavLink>
+        <nav className="flex flex-1 flex-col gap-6 overflow-y-auto px-5 py-6" aria-label="Mobile">
+          {NAV_GROUPS.map((group) => (
+            <div key={group.label}>
+              <p className="mb-1.5 px-3 font-mono text-[11px] uppercase tracking-[1.5px] text-ve-text-muted">{group.label}</p>
+              <div className="flex flex-col">
+                {group.items.map((item) => (
+                  <NavLink
+                    key={item.href}
+                    to={item.href}
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                      cn(
+                        'flex items-center gap-3 rounded-lg px-3 py-2.5 text-[15px] font-medium transition-colors',
+                        isActive ? 'bg-ve-orange-light text-ve-orange-dark' : 'text-ve-text-primary hover:bg-ve-surface-2',
+                      )
+                    }
+                  >
+                    {item.icon && <item.icon className="h-[18px] w-[18px] text-ve-text-muted" aria-hidden="true" />}
+                    {item.label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
           ))}
-          <Link onClick={onClose} to="/product" className="rounded-lg px-3 py-3 text-[16px] font-medium text-ve-text-primary hover:bg-ve-surface-2">
-            Product
-          </Link>
-          <Link onClick={onClose} to="/how-it-works" className="rounded-lg px-3 py-3 text-[16px] font-medium text-ve-text-primary hover:bg-ve-surface-2">
-            How it works
-          </Link>
-          <Link onClick={onClose} to="/faq" className="rounded-lg px-3 py-3 text-[16px] font-medium text-ve-text-primary hover:bg-ve-surface-2">
-            FAQ
-          </Link>
         </nav>
 
         <div className="flex flex-col gap-3 border-t border-ve-border px-6 py-5">
-          <Button href="/demo" variant="primary" size="md" className="w-full">
-            Watch demo
+          <Button href={REGISTER_URL} external variant="primary" size="md" className="w-full">
+            Create an account
           </Button>
           <Button href={SIGN_IN_URL} external variant="outline" size="md" className="w-full">
             Sign in

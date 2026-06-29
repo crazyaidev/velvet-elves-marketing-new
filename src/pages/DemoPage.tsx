@@ -17,7 +17,7 @@ export default function DemoPage() {
     <>
       <Seo
         title="Watch the Velvet Elves Demo"
-        description="See how Velvet Elves organizes a real estate transaction from contract to close, deadlines, updates, documents, and client communication, with you in control."
+        description="See how Velvet Elves organizes a real estate transaction from contract to close: deadlines, updates, documents, and client communication, with you in control."
         path="/demo"
       />
 

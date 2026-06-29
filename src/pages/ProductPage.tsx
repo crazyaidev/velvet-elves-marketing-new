@@ -38,7 +38,7 @@ export default function ProductPage() {
         subtitle="Velvet Elves is an AI transaction OS for real estate. It does the repetitive work between contract and close, then waits for your approval on every action."
         sourcePage="/product"
         account="create"
-        mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves agent dashboard" priority />}
+        mock={<ProductShot src="/screens/screen-transactions.png" alt="An active transaction in the Velvet Elves app" priority />}
       />
 
       <SectionShell className="bg-white">
@@ -57,7 +57,7 @@ export default function ProductPage() {
           'Drafts on-point replies in your voice',
           'Nothing is ever sent without your one-click approval',
         ]}
-        visual={<ProductShot src="/screens/screen-wizard.png" alt="AI-suggested actions in the Velvet Elves app, each awaiting approval" />}
+        visual={<ProductShot src="/screens/screen-wizard.png" alt="The Velvet Elves AI reading and organizing incoming transaction email and documents" />}
       />
 
       <ElfBand

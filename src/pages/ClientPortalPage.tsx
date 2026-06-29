@@ -53,7 +53,7 @@ export default function ClientPortalPage() {
         subtitle="Give buyers and sellers a calm, private view of their transaction: a clear timeline, documents in one place, and a way to ask without chasing you down."
         sourcePage="/client-portal"
         account="create"
-        mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves app showing a transaction's documents and status" priority />}
+        mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves app tracking an active transaction's milestones and status" priority />}
       />
 
       <SectionShell className="bg-white">

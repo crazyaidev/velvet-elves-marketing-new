@@ -11,3 +11,10 @@ export const REGISTER_URL = `${APP_URL}/register`
 
 /** Sign-in lands on the app root. */
 export const SIGN_IN_URL = APP_URL
+
+/**
+ * Public contact mailbox. CONFIRM with Jake before launch, this is a sensible
+ * default. Override with VITE_CONTACT_EMAIL. Used by the contact page and as the
+ * graceful fallback when lead-capture (Supabase) is not configured.
+ */
+export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'hello@velvetelves.com'

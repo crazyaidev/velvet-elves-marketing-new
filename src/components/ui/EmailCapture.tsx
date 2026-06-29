@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react'
 import { CheckCircle2 } from 'lucide-react'
 import { getSupabase } from '@/lib/supabase'
+import { CONTACT_EMAIL } from '@/lib/config'
 import { cn } from '@/lib/utils'
 
 type Interest = 'demo_waitlist' | 'newsletter' | 'early_access'
@@ -37,12 +38,12 @@ export function EmailCapture({ interest, sourcePage, className, tone = 'light' }
       setState('success') // silently absorb bots
       return
     }
-    const supabase = getSupabase()
+    setState('submitting')
+    const supabase = await getSupabase()
     if (!supabase) {
       setState('error')
       return
     }
-    setState('submitting')
     const { error } = await supabase.from('marketing_leads').insert({
       email,
       source_page: sourcePage,
@@ -109,8 +110,15 @@ export function EmailCapture({ interest, sourcePage, className, tone = 'light' }
         </button>
       </div>
       {state === 'error' && (
-        <p role="alert" className={cn('text-[13px]', tone === 'dark' ? 'text-ve-red-light' : 'text-ve-red-text')}>
-          Something hiccuped. Please try again.
+        <p role="alert" className={cn('text-[13px]', tone === 'dark' ? 'text-white/80' : 'text-ve-text-secondary')}>
+          That didn&rsquo;t go through. Email us at{' '}
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className={cn('font-semibold underline underline-offset-2', tone === 'dark' ? 'text-white' : 'text-ve-orange-dark')}
+          >
+            {CONTACT_EMAIL}
+          </a>{' '}
+          and we&rsquo;ll take it from there.
         </p>
       )}
     </form>

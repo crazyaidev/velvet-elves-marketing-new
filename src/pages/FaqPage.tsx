@@ -18,6 +18,7 @@ const GROUPS: Group[] = [
       { q: 'What is Velvet Elves?', a: 'Velvet Elves is AI-powered real estate transaction management software. A team of specialized "elves" runs the busywork between contract and close, triaging email, tracking deadlines and disclosures, organizing documents, and keeping clients updated, while you approve every action.' },
       { q: 'Who is it for?', a: 'Agents, brokers and teams, and FSBO sellers, plus the buyers and sellers they serve through a client portal. Attorney and transaction-coordinator experiences are on the way.' },
       { q: 'Does the AI act on its own?', a: 'No. The AI drafts, organizes, and tracks, but nothing is sent or finalized without your approval. You stay in control of every decision.' },
+      { q: 'How much does Velvet Elves cost?', a: 'Pricing is being finalized. Tell us your role on the contact page or join early access, and we will share current pricing and help you get started.' },
     ],
   },
   {
@@ -55,7 +56,7 @@ const GROUPS: Group[] = [
     id: 'demo',
     heading: 'The demo',
     faqs: [
-      { q: 'Can I watch a demo?', a: 'A full walkthrough, a real transaction from contract to close, is in production. Leave your email on the demo page and we will send it the moment it is ready.' },
+      { q: 'Can I watch a demo?', a: 'Yes. The demo page has an interactive walkthrough of a real transaction from contract to close, on the actual product. A full cinematic video is also in production; leave your email on the demo page and we will send it the moment it is ready.' },
     ],
   },
   {

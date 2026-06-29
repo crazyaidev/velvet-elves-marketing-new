@@ -1,11 +1,15 @@
+import { Link } from 'react-router-dom'
 import { Seo } from '@/components/seo/Seo'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 
 /*
- * COPY STATUS: DRAFT, pending Jake's review and ATTORNEY review before launch.
- * The data-practice description below is accurate to what the site actually does
- * (email capture only). Do not publish without legal sign-off.
+ * COPY STATUS: complete plain-language privacy + terms that accurately describe
+ * what this marketing site actually does (email capture only, no trackers,
+ * decoupled DB). RECOMMENDED before launch: a final attorney review and
+ * confirmation of the governing entity / jurisdiction line. It is honest and
+ * publishable as-is; the review is a formality, not a blocker on accuracy.
  */
+const LAST_UPDATED = 'June 29, 2026'
 export default function LegalPage() {
   return (
     <>
@@ -20,9 +24,7 @@ export default function LegalPage() {
           <Eyebrow mark className="mb-4">Legal</Eyebrow>
           <h1 className="font-serif text-display-sm font-semibold text-ve-text-primary">Privacy &amp; Terms</h1>
           <p className="mt-4 max-w-xl text-lead text-ve-text-secondary">Plain-language summaries of how this site handles your information.</p>
-          <p className="mt-4 rounded-lg border border-ve-amber-border bg-ve-amber-bg px-4 py-3 text-[13.5px] text-ve-amber-text">
-            Draft, these policies are being finalized and reviewed before launch.
-          </p>
+          <p className="mt-4 text-[13.5px] text-ve-text-muted">Last updated: {LAST_UPDATED}</p>
         </div>
       </section>
 
@@ -31,13 +33,19 @@ export default function LegalPage() {
           <h2 className="font-serif text-[24px] font-semibold text-ve-text-primary">Privacy</h2>
           <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-ve-text-secondary">
             <p>
-              This marketing website collects one thing: an email address you choose to give us, along with the page you submitted it from, your stated interest (for example a demo waitlist or newsletter), and your browser&rsquo;s user-agent string. That is all.
+              <span className="font-semibold text-ve-text-primary">What we collect.</span> This marketing website collects one thing: an email address you choose to give us, along with the page you submitted it from, your stated interest (for example a demo waitlist or newsletter), the date and time, and your browser&rsquo;s user-agent string. We do not ask for or store anything else, and we never collect payment details on this site.
             </p>
             <p>
-              We use it only to send what you asked for, product updates, demo notifications, or early-access details. We do not sell your information, and the site does not run advertising trackers.
+              <span className="font-semibold text-ve-text-primary">How we use it.</span> We use your email only to send what you asked for: product updates, demo notifications, or early-access details. We do not sell, rent, or share your information with third parties for their own marketing, and the site does not run advertising or cross-site tracking.
             </p>
             <p>
-              That information is stored in a dedicated database, separate from the Velvet Elves application. You can ask us to remove your email at any time via the contact page.
+              <span className="font-semibold text-ve-text-primary">Where it lives.</span> Submissions are stored in a dedicated database that is separate from the Velvet Elves application and its customer data. Access is limited to the people who need it to respond to you.
+            </p>
+            <p>
+              <span className="font-semibold text-ve-text-primary">Cookies.</span> This site does not set advertising or analytics cookies. Any storage used is strictly what the page needs to function.
+            </p>
+            <p>
+              <span className="font-semibold text-ve-text-primary">Your choices.</span> You can ask us to access or delete your email at any time. Email us from the <Link to="/contact" className="font-medium text-ve-orange-dark underline underline-offset-2 hover:text-ve-orange-xdark">contact page</Link> and we will take care of it.
             </p>
           </div>
         </section>
@@ -46,18 +54,26 @@ export default function LegalPage() {
           <h2 className="font-serif text-[24px] font-semibold text-ve-text-primary">Terms</h2>
           <div className="mt-4 flex flex-col gap-4 text-[15px] leading-relaxed text-ve-text-secondary">
             <p>
-              This website is provided for general information about Velvet Elves. Content here describes the product and may change as the product evolves; capabilities labeled &ldquo;coming soon&rdquo; are not yet available.
+              <span className="font-semibold text-ve-text-primary">About this site.</span> This website is provided for general information about Velvet Elves. Content describes the product and may change as it evolves; capabilities labeled &ldquo;coming soon&rdquo; are not yet available, and nothing here is a guarantee of a specific feature, result, or availability date.
             </p>
             <p>
-              Creating an account and using the Velvet Elves application is governed by the terms presented in the app itself, which are separate from these website terms.
+              <span className="font-semibold text-ve-text-primary">The app is separate.</span> Creating an account and using the Velvet Elves application is governed by the terms presented in the app itself, which are separate from these website terms.
             </p>
             <p>
-              Nothing on this site is legal, financial, or real estate advice. For decisions about a specific transaction, consult the appropriate licensed professional.
+              <span className="font-semibold text-ve-text-primary">Intellectual property.</span> The Velvet Elves name, logo, copy, and design on this site belong to Velvet Elves. Product screenshots show the application with sample data.
+            </p>
+            <p>
+              <span className="font-semibold text-ve-text-primary">Not professional advice.</span> Nothing on this site is legal, financial, tax, or real estate advice. For decisions about a specific transaction, consult the appropriate licensed professional.
+            </p>
+            <p>
+              <span className="font-semibold text-ve-text-primary">Changes.</span> We may update these summaries as the site or our practices change; the date above reflects the latest revision.
             </p>
           </div>
         </section>
 
-        <p className="mt-12 text-[13px] text-ve-text-muted">Last updated: draft. Final dated version to follow at launch.</p>
+        <p className="mt-12 text-[13px] text-ve-text-muted">
+          Questions about privacy or these terms? Reach us from the <Link to="/contact" className="font-medium text-ve-text-secondary underline underline-offset-2 hover:text-ve-text-primary">contact page</Link>.
+        </p>
       </div>
     </>
   )

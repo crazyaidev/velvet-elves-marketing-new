@@ -3,9 +3,7 @@ import { Mail, ArrowRight } from 'lucide-react'
 import { Seo } from '@/components/seo/Seo'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { EmailCapture } from '@/components/ui/EmailCapture'
-
-// CONFIRM with Jake before launch: real contact address (placeholder for now).
-const CONTACT_EMAIL = 'hello@velvetelves.com'
+import { CONTACT_EMAIL } from '@/lib/config'
 
 const ROLE_LINKS = [
   { label: 'For agents', href: '/agents' },

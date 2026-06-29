@@ -59,7 +59,7 @@ export default function AgentsPage() {
         subtitle="Velvet Elves runs the contract-to-close busywork so you can focus on clients and deals, with every action waiting for your approval."
         sourcePage="/agents"
         account="create"
-        mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves agent dashboard with pipeline and action queue" priority />}
+        mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves Active Transactions view, tracking a deal from contract to close" priority />}
       />
 
       <SectionShell className="bg-white">

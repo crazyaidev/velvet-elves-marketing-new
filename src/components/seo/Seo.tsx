@@ -12,10 +12,11 @@ interface SeoProps extends PageMeta {
  */
 export function Seo({ title, description, path, noindex, jsonLd }: SeoProps) {
   const url = canonical(path)
-  // 1200x630 raster OG image for full Twitter/Slack/LinkedIn support. A per-page
-  // generator (satori) can replace this default later (plan §7); the default is
-  // brand-accurate today.
-  const ogImage = `${SITE_URL}/og-default.png`
+  // Per-page 1200x630 raster OG image (full Twitter/Slack/LinkedIn support).
+  // Indexable routes have a matching /og/<slug>.png; noindex/utility routes fall
+  // back to the brand default. Slug must match scripts that generate /og/*.png.
+  const slug = path === '/' ? 'home' : path.replace(/^\//, '').replace(/\//g, '-')
+  const ogImage = noindex ? `${SITE_URL}/og-default.png` : `${SITE_URL}/og/${slug}.png`
   const ogAlt = 'Velvet Elves, the AI transaction OS for real estate.'
   return (
     <>

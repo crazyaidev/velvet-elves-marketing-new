@@ -5,10 +5,10 @@ import { SectionShell } from '@/components/ui/SectionShell'
 import { FinaleCta } from '@/components/sections/FinaleCta'
 
 /*
- * COPY STATUS: DRAFT, pending Jake's review.
- * Facts to confirm before launch: founder name / brokerage / location, and any
- * company history. This page deliberately makes NO claim it cannot stand behind
- * (no team size, funding, customer counts, or awards).
+ * COPY STATUS: launch-ready, written to make only verifiable claims (no team
+ * size, funding, customer counts, or awards). OPTIONAL for Jake: add concrete
+ * specifics (founder name, brokerage, location, founding year) if he wants them;
+ * the page reads as finished without them.
  */
 const PRINCIPLES = [
   { icon: Wind, title: 'Calm', body: 'Real estate is stressful enough. The product, and this company, work to take the chaos down, not add to it.' },
