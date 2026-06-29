@@ -2,72 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://velvetelves.com/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/product</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://velvetelves.com/features</loc>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/how-it-works</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/demo</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/agents</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/brokers-teams</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/attorneys</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/client-portal</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/fsbo</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/faq</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/guides/contract-to-close</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/about</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/contact</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://velvetelves.com/legal</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>

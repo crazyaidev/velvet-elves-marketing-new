@@ -7,6 +7,7 @@ import AttorneysPage from '@/pages/AttorneysPage'
 import ClientPortalPage from '@/pages/ClientPortalPage'
 import FsboPage from '@/pages/FsboPage'
 import ProductPage from '@/pages/ProductPage'
+import FeaturesPage from '@/pages/FeaturesPage'
 import HowItWorksPage from '@/pages/HowItWorksPage'
 import DemoPage from '@/pages/DemoPage'
 import CreateAccountPage from '@/pages/CreateAccountPage'
@@ -25,6 +26,7 @@ export const routes: RouteRecord[] = [
     children: [
       { index: true, element: <HomePage /> },
       { path: 'product', element: <ProductPage /> },
+      { path: 'features', element: <FeaturesPage /> },
       { path: 'how-it-works', element: <HowItWorksPage /> },
       { path: 'demo', element: <DemoPage /> },
       { path: 'create-account', element: <CreateAccountPage /> },

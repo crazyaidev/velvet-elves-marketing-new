@@ -15,6 +15,7 @@ const publicDir = resolve(here, '../public')
 const ROUTES = [
   { path: '/', priority: '1.0' },
   { path: '/product', priority: '0.9' },
+  { path: '/features', priority: '0.9' },
   { path: '/how-it-works', priority: '0.8' },
   { path: '/demo', priority: '0.8' },
   { path: '/agents', priority: '0.9' },

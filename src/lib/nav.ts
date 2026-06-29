@@ -1,5 +1,6 @@
 import {
   LayoutGrid,
+  Boxes,
   Workflow,
   PlayCircle,
   User,
@@ -38,6 +39,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: 'Product',
     items: [
       { label: 'Overview', href: '/product', description: 'The AI transaction OS', icon: LayoutGrid },
+      { label: 'All features', href: '/features', description: 'Every capability, in depth', icon: Boxes },
       { label: 'How it works', href: '/how-it-works', description: 'Three steps, contract to close', icon: Workflow },
       { label: 'Watch demo', href: '/demo', description: 'See the product in motion', icon: PlayCircle },
     ],
@@ -74,6 +76,7 @@ export const FOOTER_COLUMNS = [
     heading: 'Product',
     links: [
       { label: 'Product', href: '/product' },
+      { label: 'All features', href: '/features' },
       { label: 'How it works', href: '/how-it-works' },
       { label: 'Demo', href: '/demo' },
     ],
