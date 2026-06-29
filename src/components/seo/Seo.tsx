@@ -12,9 +12,11 @@ interface SeoProps extends PageMeta {
  */
 export function Seo({ title, description, path, noindex, jsonLd }: SeoProps) {
   const url = canonical(path)
-  // SVG placeholder OG image. TODO(prod): replace with a 1200×630 PNG (satori
-  // build step) for full Twitter/Slack/LinkedIn raster support, plan §1A/F8.
-  const ogImage = `${SITE_URL}/og-default.svg`
+  // 1200x630 raster OG image for full Twitter/Slack/LinkedIn support. A per-page
+  // generator (satori) can replace this default later (plan §7); the default is
+  // brand-accurate today.
+  const ogImage = `${SITE_URL}/og-default.png`
+  const ogAlt = 'Velvet Elves, the AI transaction OS for real estate.'
   return (
     <>
       <Head>
@@ -28,10 +30,14 @@ export function Seo({ title, description, path, noindex, jsonLd }: SeoProps) {
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
         <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={ogAlt} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image:alt" content={ogAlt} />
       </Head>
       {/* JSON-LD is valid in the body and is reliably serialized into the
           prerendered HTML this way (unhead's Head drops dangerouslySetInnerHTML). */}

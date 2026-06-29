@@ -1,0 +1,14 @@
+{
+  "name": "Velvet Elves",
+  "short_name": "Velvet Elves",
+  "description": "AI real estate transaction management. The elves run the busywork between contract and close, and nothing moves without your approval.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#141A24",
+  "theme_color": "#1E3356",
+  "icons": [
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}

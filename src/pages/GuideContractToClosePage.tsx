@@ -126,7 +126,7 @@ export default function GuideContractToClosePage() {
 
       <FinaleCta
         title="Let the elves track the timeline for you."
-        subtitle="Every deadline, document, and milestone: surfaced before it becomes a problem."
+        subtitle="Every deadline, document, and milestone, surfaced before it becomes a problem."
         sourcePage="/guides/contract-to-close"
         account="create"
       />

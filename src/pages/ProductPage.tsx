@@ -35,7 +35,7 @@ export default function ProductPage() {
       <RoleHero
         eyebrow="The platform"
         title={<>A team that handles the busywork. You keep control.</>}
-        subtitle="Velvet Elves is an AI transaction OS for real estate. It does the repetitive work between contract and close: and waits for your approval on every action."
+        subtitle="Velvet Elves is an AI transaction OS for real estate. It does the repetitive work between contract and close, then waits for your approval on every action."
         sourcePage="/product"
         account="create"
         mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves agent dashboard" priority />}

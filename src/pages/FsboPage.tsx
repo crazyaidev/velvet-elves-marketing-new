@@ -50,7 +50,7 @@ export default function FsboPage() {
       <RoleHero
         eyebrow="For FSBO sellers"
         title={<>Sell your home with a professional&rsquo;s structure.</>}
-        subtitle="Velvet Elves gives you a guided, deadline-aware path from accepted offer to closing: so you can sell on your own without losing the plot."
+        subtitle="Velvet Elves gives you a guided, deadline-aware path from accepted offer to closing, so you can sell on your own without losing the plot."
         sourcePage="/fsbo"
         account="early-access"
         mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves app showing an active transaction from contract to close" priority />}

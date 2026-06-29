@@ -48,7 +48,7 @@ export default function AgentsPage() {
     <>
       <Seo
         title="Velvet Elves for Agents: AI Transaction Assistant"
-        description="Win back your evenings and give clients a five-star experience. Velvet Elves triages email, tracks deadlines, and keeps clients updated, and you approve everything."
+        description="Win back your evenings and give clients a five-star experience. Velvet Elves triages email, tracks deadlines, and keeps clients updated, while you approve everything."
         path="/agents"
         jsonLd={[faqPageJsonLd(FAQS)]}
       />
@@ -56,7 +56,7 @@ export default function AgentsPage() {
       <RoleHero
         eyebrow="For agents"
         title={<>More five-star closings. Fewer late nights.</>}
-        subtitle="Velvet Elves runs the contract-to-close busywork so you can focus on clients and deals: with every action waiting for your approval."
+        subtitle="Velvet Elves runs the contract-to-close busywork so you can focus on clients and deals, with every action waiting for your approval."
         sourcePage="/agents"
         account="create"
         mock={<ProductShot src="/screens/screen-transactions.png" alt="The Velvet Elves agent dashboard with pipeline and action queue" priority />}
@@ -93,7 +93,7 @@ export default function AgentsPage() {
 
       <FinaleCta
         title="See your next closing run itself."
-        subtitle="Watch a complete transaction move from contract to close: without a single follow-up email from you."
+        subtitle="Watch a complete transaction move from contract to close, without a single follow-up email from you."
         sourcePage="/agents"
         account="create"
       />

@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ElementType, type ReactNode } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion'
 import { cn } from '@/lib/utils'
 
 interface RevealProps {
@@ -21,7 +21,7 @@ interface RevealProps {
  */
 export function Reveal({ children, className, as, y = 24, delay = 0 }: RevealProps) {
   const Tag = (as ?? 'div') as ElementType
-  const reduce = useReducedMotion()
+  const reduce = usePrefersReducedMotion()
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {

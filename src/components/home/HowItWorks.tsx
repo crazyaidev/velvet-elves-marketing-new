@@ -7,24 +7,24 @@ import { cn } from '@/lib/utils'
 const STEPS = [
   {
     num: '01',
-    title: 'Forward what you have.',
-    body: 'Email, documents, and deadlines. Drop them in and the elves take it from there.',
+    title: 'Drop in the contract.',
+    body: 'Upload the executed contract or forward the email. Velvet Elves reads it and pulls out the parties, property, price, and every contractual date for you to confirm.',
     src: '/screens/screen-wizard.png',
-    alt: 'The Velvet Elves AI intake, where you drop a contract and the elves read it',
+    alt: 'The Velvet Elves AI intake reading a contract and extracting its parties and key dates',
   },
   {
     num: '02',
-    title: 'The elves organize.',
-    body: 'They sort, track, and handle the routine. Deadlines get flagged. Documents get filed. Nothing falls through.',
+    title: 'It builds the transaction.',
+    body: 'From the contract, the elves assemble the file: a deadline-aware task plan, the document checklist, every contact, and a clear client timeline, all kept current as the deal moves.',
     src: '/screens/screen-transactions.png',
-    alt: 'Documents organized in the Velvet Elves app with an AI briefing',
+    alt: 'An assembled transaction in the Velvet Elves app with its task plan, timeline, and documents',
   },
   {
     num: '03',
-    title: 'You approve, they execute.',
-    body: 'Review what matters, make the call, and the elves handle the rest. You stay in control without being in the weeds.',
+    title: 'You approve, it executes.',
+    body: 'Every reply and reminder is drafted for you. Approve it and the elves send it, update the client, and check off the task, with a complete audit trail and role-based access.',
     src: '/screens/screen-transactions.png',
-    alt: 'An active transaction in the Velvet Elves app, tracked from contract to close',
+    alt: 'An AI-drafted reply awaiting one-click approval in the Velvet Elves app',
   },
 ]
 
@@ -123,7 +123,7 @@ export function HowItWorks() {
                     <ProductShot src={s.src} alt={s.alt} priority />
                   </div>
                 ))}
-                <p className="mt-5 text-center text-[12px] text-white/40">The Velvet Elves app · sample data</p>
+                <p className="mt-5 text-center text-[12px] text-white/55">The Velvet Elves app · sample data</p>
               </div>
             </div>
           </div>

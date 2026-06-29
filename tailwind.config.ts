@@ -3,12 +3,15 @@ import type { Config } from 'tailwindcss'
 /**
  * Velvet Elves marketing — design tokens.
  *
- * The `ve-*` palette, type families, radii, shadows and keyframes are ported
- * VERBATIM from the base app (velvet-elves-frontend/tailwind.config.js) so the
- * marketing site and the product read as one brand. The ONLY additions are the
- * marketing display type scale + section rhythm (editorial sizes the dense
- * product UI does not need). Never hand-retype these hex values — they mirror
- * the app's single source of truth.
+ * The `ve-*` palette, radii, shadows and keyframes are ported VERBATIM from the
+ * base app (velvet-elves-frontend/tailwind.config.js) so the marketing site and
+ * the product read as one brand. Never hand-retype these hex values — they
+ * mirror the app's single source of truth.
+ *
+ * Type system (marketing-specific, by design direction): Geist (modern
+ * grotesque) for body/UI + Lora (elegant serif) for editorial headlines. The
+ * additions over the app are the marketing display type scale + section rhythm
+ * (editorial sizes the dense product UI does not need).
  */
 const config: Config = {
   content: ['./index.html', './src/**/*.{ts,tsx,js,jsx}'],
@@ -23,8 +26,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter Variable', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        serif: ['Fraunces Variable', 'Fraunces', 'Georgia', 'serif'],
+        sans: ['Geist Variable', 'Geist', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        serif: ['Lora', 'Georgia', 'Cambria', 'serif'],
         mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
       },
       fontSize: {
@@ -153,6 +156,8 @@ const config: Config = {
         'float-sm': { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-8px)' } },
         marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
         'gradient-pan': { '0%,100%': { backgroundPosition: '0% 50%' }, '50%': { backgroundPosition: '100% 50%' } },
+        // Hero rotating-word enter (replaces the framer-motion crossfade).
+        'rotate-word': { '0%': { opacity: '0', transform: 'translateY(0.4em)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
       },
       animation: {
         'fade-in': 'fade-in 0.3s ease-out',
@@ -166,6 +171,7 @@ const config: Config = {
         'float-sm': 'float-sm 5.5s ease-in-out infinite',
         marquee: 'marquee 38s linear infinite',
         'gradient-pan': 'gradient-pan 6s ease-in-out infinite',
+        'rotate-word': 'rotate-word 0.42s cubic-bezier(0.22,0.61,0.18,1)',
       },
     },
   },

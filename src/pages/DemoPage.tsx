@@ -7,9 +7,9 @@ import { RoleCards } from '@/components/home/RoleCards'
 import { REGISTER_URL } from '@/lib/config'
 
 const STEPS = [
-  { num: '01', title: 'Forward what you have', body: 'Email, documents, and deadlines.' },
-  { num: '02', title: 'The elves organize', body: 'Sorted, tracked, and drafted for you.' },
-  { num: '03', title: 'You approve, they execute', body: 'You make the calls; they do the work.' },
+  { num: '01', title: 'Drop in the contract', body: 'Upload it or forward the email; the elves read it and pull out the parties, dates, and terms.' },
+  { num: '02', title: 'It builds the transaction', body: 'A deadline-aware task plan, the document checklist, contacts, and a clear client timeline.' },
+  { num: '03', title: 'You approve, it executes', body: 'Review the drafts, make the call, and the elves send, update, and check it off.' },
 ]
 
 export default function DemoPage() {

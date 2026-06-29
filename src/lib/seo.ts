@@ -25,6 +25,7 @@ export function organizationJsonLd() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
+    logo: `${SITE_URL}/icon-512.png`,
     description:
       'AI-powered real estate transaction management and client-portal software for agents, teams, and FSBO sellers.',
   }

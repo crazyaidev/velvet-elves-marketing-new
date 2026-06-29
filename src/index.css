@@ -41,23 +41,33 @@
   }
 
   body {
-    font-family: 'Inter Variable', Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-family: 'Geist Variable', Geist, Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     @apply bg-cream text-ve-text-primary;
-    font-feature-settings: 'rlig' 1, 'calt' 1, 'ss01' 1, 'cv05' 1;
-    letter-spacing: -0.005em;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    letter-spacing: -0.011em;
   }
 
-  /* Fraunces shines at display sizes, let optical sizing track the font-size,
-     with a touch of softness for the premium, concierge feel. */
+  /* Lora is an elegant, high-contrast serif. At editorial display sizes it
+     wants a touch of negative tracking so headlines read as one tight unit. */
   .font-serif {
-    font-optical-sizing: auto;
-    font-variation-settings: 'SOFT' 28, 'WONK' 0;
+    letter-spacing: -0.018em;
+    font-feature-settings: 'liga' 1, 'calt' 1;
   }
 
   ::selection {
     background-color: rgba(226, 104, 18, 0.18);
+  }
+
+  /* Keyboard focus ring for every interactive element that does not already
+     style its own (nav links, footer links, accordion triggers, cards). Uses
+     :where() so it stays at zero specificity and never fights component styles.
+     Mouse users see nothing (focus-visible only). */
+  :where(a, button, summary, [role='button'], [tabindex]):focus-visible {
+    outline: 2px solid var(--ve-orange);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 }
 
@@ -72,7 +82,7 @@
 }
 
 /* Respect reduced-motion globally as a backstop; components also gate via
-   framer-motion's useReducedMotion. */
+   the usePrefersReducedMotion hook (lib/usePrefersReducedMotion.ts). */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

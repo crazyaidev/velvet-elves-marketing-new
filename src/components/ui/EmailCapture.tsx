@@ -96,7 +96,7 @@ export function EmailCapture({ interest, sourcePage, className, tone = 'light' }
             'focus:border-ve-orange focus:ring-2 focus:ring-ve-orange/30',
             'disabled:opacity-60',
             tone === 'dark'
-              ? 'border-white/25 bg-white/10 text-white placeholder:text-white/50'
+              ? 'border-white/25 bg-white/10 text-white placeholder:text-white/60'
               : 'border-ve-border bg-white text-ve-text-primary placeholder:text-ve-text-muted',
           )}
         />

@@ -52,7 +52,7 @@ export default function HomePage() {
       <TrustBand />
       <FinaleCta
         title="Ready to see it in action?"
-        subtitle="Watch a complete transaction move from contract to close: without a single follow-up email from you."
+        subtitle="Watch a complete transaction move from contract to close, without a single follow-up email from you."
         sourcePage="/"
       />
     </>

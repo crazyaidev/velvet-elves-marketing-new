@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ElementType, type ReactNode } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion'
 
 interface StaggerProps {
   children: ReactNode
@@ -18,7 +18,7 @@ interface StaggerProps {
  */
 export function Stagger({ children, className, as, step = 90, y = 22 }: StaggerProps) {
   const Tag = (as ?? 'div') as ElementType
-  const reduce = useReducedMotion()
+  const reduce = usePrefersReducedMotion()
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {

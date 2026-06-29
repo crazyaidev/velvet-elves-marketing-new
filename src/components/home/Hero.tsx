@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Sparkles, Check, ShieldCheck, ScrollText } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Eyebrow } from '@/components/ui/Eyebrow'
@@ -7,9 +6,14 @@ import { Reveal } from '@/components/ui/Reveal'
 import { WatchDemoButton } from '@/components/demo/WatchDemoButton'
 import { ProductShot } from '@/components/product/ProductShot'
 import { REGISTER_URL } from '@/lib/config'
+import { usePrefersReducedMotion } from '@/lib/usePrefersReducedMotion'
 
-// The locked rotator words (plan §1A/F3). "skydiving" renders server-side.
-const WORDS = ['skydiving', 'hiking', 'on the lake', 'golfing', 'making dinner', "at your kid's game", 'asleep']
+// The rotator words (plan §1A/F3). "skydiving" renders server-side. Kept short
+// and uniform so each fits on one line; SIZER below reserves the line's height.
+const WORDS = ['skydiving', 'on the lake', 'hiking', 'golfing', 'making dinner', 'at the game', 'asleep']
+// The widest phrase. Rendered invisibly to lock the rotator line's footprint so
+// a longer word can never wrap and shove the buttons below it (the old bug).
+const SIZER = 'making dinner.'
 const ROTATE_MS = 3200
 
 const TRUST = [
@@ -19,7 +23,7 @@ const TRUST = [
 ]
 
 export function Hero() {
-  const reduce = useReducedMotion()
+  const reduce = usePrefersReducedMotion()
   const [mounted, setMounted] = useState(false)
   const [i, setI] = useState(0)
 
@@ -51,24 +55,25 @@ export function Hero() {
         <div>
           <Eyebrow tone="light" mark className="mb-5">The AI transaction OS for real estate</Eyebrow>
 
-          <h1 className="font-serif text-display font-semibold leading-[1.04] text-white text-balance">
-            Your transaction keeps moving while you&rsquo;re{' '}
-            {rotate ? (
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={word}
-                  className="inline-block text-ve-orange"
-                  initial={{ y: '0.4em', opacity: 0 }}
-                  animate={{ y: '0em', opacity: 1 }}
-                  exit={{ y: '-0.3em', opacity: 0 }}
-                  transition={{ duration: 0.35, ease: [0.2, 0.7, 0.2, 1] }}
-                >
+          <h1 className="font-serif text-display font-semibold leading-[1.05] text-white">
+            <span className="block text-balance">Your transaction keeps moving while you&rsquo;re</span>
+            {/* The rotating word sits on its own line. An invisible sizer holds
+                the widest phrase so the line height is fixed: the word can swap
+                freely without ever pushing the CTAs below it. */}
+            <span className="relative mt-1.5 grid">
+              <span aria-hidden="true" className="invisible col-start-1 row-start-1 italic">
+                {SIZER}
+              </span>
+              {rotate ? (
+                // `key` remounts the span each tick so the CSS enter animation
+                // replays; the sizer above keeps the line height fixed (no shift).
+                <span key={word} className="col-start-1 row-start-1 animate-rotate-word italic text-ve-orange">
                   {word}.
-                </motion.span>
-              </AnimatePresence>
-            ) : (
-              <span className="text-ve-orange">skydiving.</span>
-            )}
+                </span>
+              ) : (
+                <span className="col-start-1 row-start-1 italic text-ve-orange">skydiving.</span>
+              )}
+            </span>
           </h1>
 
           <p className="mt-6 max-w-lg text-lead text-white/70">
@@ -85,7 +90,7 @@ export function Hero() {
 
           <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2.5">
             {TRUST.map((t) => (
-              <li key={t.label} className="flex items-center gap-2 text-[13.5px] text-white/55">
+              <li key={t.label} className="flex items-center gap-2 text-[13.5px] text-white/65">
                 <t.icon className="h-4 w-4 text-ve-orange/90" aria-hidden="true" />
                 {t.label}
               </li>
@@ -116,7 +121,7 @@ export function Hero() {
               </p>
             </div>
           </div>
-          <p className="mt-7 text-center text-[12px] text-white/40 sm:text-right">The Velvet Elves app · sample data</p>
+          <p className="mt-7 text-center text-[12px] text-white/55 sm:text-right">The Velvet Elves app · sample data</p>
         </Reveal>
       </div>
     </section>

@@ -21,7 +21,7 @@ export function Footer() {
 
           {FOOTER_COLUMNS.map((col) => (
             <div key={col.heading}>
-              <h3 className="font-mono text-[12px] uppercase tracking-[1.5px] text-white/45">{col.heading}</h3>
+              <h3 className="font-mono text-[12px] uppercase tracking-[1.5px] text-white/60">{col.heading}</h3>
               <ul className="mt-4 flex flex-col gap-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
@@ -37,7 +37,7 @@ export function Footer() {
 
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-content flex-col items-center justify-between gap-3 px-6 py-6 sm:flex-row">
-            <p className="text-[13px] text-white/55">© {new Date().getFullYear()} Velvet Elves. All rights reserved.</p>
+            <p className="text-[13px] text-white/65">© {new Date().getFullYear()} Velvet Elves. All rights reserved.</p>
             <a href={SIGN_IN_URL} target="_blank" rel="noopener noreferrer" className="text-[13px] font-medium text-white/75 hover:text-white">
               Sign in to the app →
             </a>

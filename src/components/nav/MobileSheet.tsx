@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { X } from 'lucide-react'
 import { ROLE_LINKS } from '@/lib/nav'
@@ -12,14 +12,47 @@ interface MobileSheetProps {
 }
 
 export function MobileSheet({ open, onClose }: MobileSheetProps) {
+  const panelRef = useRef<HTMLDivElement>(null)
+  const restoreRef = useRef<HTMLElement | null>(null)
+
   useEffect(() => {
     if (!open) return
+    restoreRef.current = document.activeElement as HTMLElement
     document.body.style.overflow = 'hidden'
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
+
+    const focusables = () =>
+      Array.from(
+        panelRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input, [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      )
+    // Move focus into the sheet so keyboard users land inside the trap.
+    focusables()[0]?.focus()
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+      if (e.key !== 'Tab') return
+      const f = focusables()
+      if (f.length === 0) return
+      const first = f[0]
+      const last = f[f.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
     document.addEventListener('keydown', onKey)
     return () => {
       document.body.style.overflow = ''
       document.removeEventListener('keydown', onKey)
+      // Return focus to whatever opened the sheet.
+      restoreRef.current?.focus?.()
     }
   }, [open, onClose])
 
@@ -36,6 +69,7 @@ export function MobileSheet({ open, onClose }: MobileSheetProps) {
         onClick={onClose}
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Menu"

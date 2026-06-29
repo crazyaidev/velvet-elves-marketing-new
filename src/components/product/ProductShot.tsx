@@ -40,7 +40,11 @@ export function ProductShot({ src, alt, browser = true, priority = false, classN
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         decoding="async"
-        className="block w-full"
+        // Intrinsic size of the captured screens (2880x1760); with w-full +
+        // height:auto the browser reserves the aspect ratio, preventing CLS.
+        width={2880}
+        height={1760}
+        className="block h-auto w-full"
       />
     </div>
   )
